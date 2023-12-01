@@ -76,3 +76,14 @@ RUN mkdir  /mnt/File
 RUN chmod -R o+w /mnt/
 
 CMD [ "python3", "Main.py"]
+
+
+#после создания контейнера, нужно: 
+#1. примаунтить папку scan, через телеграм бота 
+#2. поменять пароль пользователю print, командой passwd print 
+#3. Скопирвоать файл printers.conf из /mnt/scan/ppd/printers.conf в папку /etc/cups
+#4. скопировать всю папку /mnt/scan/ppd в /etc/cups
+#5. поменять рекунсивно пользователь:группа в папке cups командой chown root:root -R /etc/cups
+#6. перезапустить службу cups командой service cups restart 
+#
+#
