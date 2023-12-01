@@ -1,31 +1,31 @@
-import subprocess
-import re
+# import subprocess
+# import re
 
-def get_printers():
-    try:
-        # Выполняем команду lpstat для получения списка принтеров
-        result = subprocess.run(['lpstat', '-p'], capture_output=True, text=True, check=True)
+# def get_printers():
+#     try:
+#         # Выполняем команду lpstat для получения списка принтеров
+#         result = subprocess.run(['lpstat', '-p'], capture_output=True, text=True, check=True)
 
-        # Разбиваем вывод команды на строки
-        lines = result.stdout.splitlines()
+#         # Разбиваем вывод команды на строки
+#         lines = result.stdout.splitlines()
 
-        # Извлекаем имена принтеров из строк
-        printers = [line.split()[1] for line in lines]
+#         # Извлекаем имена принтеров из строк
+#         printers = [line.split()[1] for line in lines]
 
-        #printers = printers.split("[]'")
-        #printers = printers.remove("'[")
-        cleaned_text =''.join(char for char in printers if char not in "[]'")
+#         #printers = printers.split("[]'")
+#         #printers = printers.remove("'[")
+#         cleaned_text =''.join(char for char in printers if char not in "[]'")
 
 
-        return cleaned_text
+#         return cleaned_text
 
-    except subprocess.CalledProcessError as e:
-        print(f"Ошибка при выполнении команды: {e}")
-        return []
+#     except subprocess.CalledProcessError as e:
+#         print(f"Ошибка при выполнении команды: {e}")
+#         return []
 
-# Получаем и выводим список принтеров
-printers = get_printers()
-print(printers)
+# # Получаем и выводим список принтеров
+# printers = get_printers()
+# print(printers)
 
 
 # import datetime
