@@ -63,7 +63,7 @@ def List_Print(bot,call):
     keyboard_list_print_for_print_cerkov = types.InlineKeyboardMarkup(row_width=4)
     buttons_cerkov = [
         types.InlineKeyboardButton(text=f'print18 {checkPrint("print18.metalab.ifmo.ru")}', callback_data='print18_print'),
-        types.InlineKeyboardButton(text=f'print7 {checkPrint("print17.metalab.ifmo.ru")}', callback_data='print7_print'),
+        types.InlineKeyboardButton(text=f'print7 {checkPrint("print7.metalab.ifmo.ru")}', callback_data='print7_print'),
         types.InlineKeyboardButton(text=f'print4318 {checkPrint("print4318.metalab.ifmo.ru")}', callback_data='print4318_print'),
         types.InlineKeyboardButton(text=f'print21 {checkPrint("print21.metalab.ifmo.ru")}', callback_data='print21_print')
     ]
