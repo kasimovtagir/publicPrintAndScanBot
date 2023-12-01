@@ -20,8 +20,12 @@ from ping3 import ping, verbose_ping
 def pinging(host):
     response_time = ping(host)
     if response_time is not None:
-        print(f'{host} доступен (Время отклика: {response_time} мс)', flush=True)
-        return True
+        if response_time is False:
+            print(f'{host} недоступен', flush=True)
+            return False
+        else: 
+            print(f'{host} доступен (Время отклика: {response_time} мс)', flush=True)
+            return True
     else:
         print(f'{host} недоступен', flush=True)
         return False
