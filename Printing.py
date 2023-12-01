@@ -24,6 +24,7 @@ def pinging(host):
         return True
     else:
         print(f'{host} недоступен')
+        os.system(f'{host} недоступен')
         return False
 
 def return_time():
