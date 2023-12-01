@@ -81,6 +81,11 @@ def List_Print(bot,call):
 
 
 def Show_Information (bot:telebot.TeleBot,call:telebot.types.CallbackQuery,choose_printer):
+    if choose_printer == "172.16.35.75":
+        choose_printer = "print2426.metalab.ifmo.ru"
+    if choose_printer == "172.16.39.20":
+        choose_printer = "print4318.metalab.ifmo.ru"
+
     if pinging(choose_printer):
         try :
             bot.current_states.set_data(call.message.chat.id, call.message.chat.id, "choose_printer", choose_printer)
