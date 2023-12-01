@@ -248,9 +248,9 @@ def Actions (call):
             "print18_print": "print18.metalab.ifmo.ru",
             "print7_print": "print7.metalab.ifmo.ru",
             "print21_print": "print21.metalab.ifmo.ru",
-            "print4318_print": "print4318.metalab.ifmo.ru",
+            "print4318_print": "172.16.39.20",
             "print17_print": "print17.metalab.ifmo.ru",
-            "print2426_print": "print2426.metalab.ifmo.ru"
+            "print2426_print": "172.16.35.75"
         }
 
 
