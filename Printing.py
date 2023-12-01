@@ -69,7 +69,7 @@ def List_Print(bot,call):
 
     keyboard_list_print_for_print_4_flor = types.InlineKeyboardMarkup(row_width=4)
     buttons_4_flors = [
-        types.InlineKeyboardButton(text=f'print2426 {checkPrint("172.16.36.35")}', callback_data='print2426_print')
+        types.InlineKeyboardButton(text=f'print2426 {checkPrint("172.16.35.75")}', callback_data='print2426_print')
     ]
     keyboard_list_print_for_print_4_flor.add(*buttons_4_flors)
     bot.send_message(call.from_user.id, text='Принтеры на Ломоносова, 9, 4й этаж.',reply_markup=keyboard_list_print_for_print_4_flor)
