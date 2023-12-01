@@ -43,14 +43,14 @@ def List_Print(bot,call):
 
     keyboard_list_print_for_print_2520_2530 = types.InlineKeyboardMarkup(row_width=4)
     buttons_2520_2530 = [
-        types.InlineKeyboardButton(text=f'print14 {checkPrint("print14.metalab.ifmo.ru")}', callback_data='print14_print' ),
-        types.InlineKeyboardButton(text=f'print15 {checkPrint("print15.metalab.ifmo.ru")}', callback_data='print15_print'),
-        types.InlineKeyboardButton(text=f'print16 {checkPrint("print16.metalab.ifmo.ru")}', callback_data='print16_print'),
-        types.InlineKeyboardButton(text=f'print10 {checkPrint("print10.metalab.ifmo.ru")}', callback_data='print10_print'),
-        types.InlineKeyboardButton(text=f'print9 {checkPrint("print9.metalab.ifmo.ru")}', callback_data='print9_print'),
-        types.InlineKeyboardButton(text=f'print13 {checkPrint("print13.metalab.ifmo.ru")}', callback_data='print13_print'),
-        types.InlineKeyboardButton(text=f'print19 {checkPrint("print19.metalab.ifmo.ru")}', callback_data='print19_print'),
-        types.InlineKeyboardButton(text=f'print22 {checkPrint("print22.metalab.ifmo.ru")}', callback_data='print22_print')
+        types.InlineKeyboardButton(text=f'print14 {checkPrint("172.16.39.22")}', callback_data='print14_print' ),
+        types.InlineKeyboardButton(text=f'print15 {checkPrint("172.16.39.23")}', callback_data='print15_print'),
+        types.InlineKeyboardButton(text=f'print16 {checkPrint("172.16.39.24")}', callback_data='print16_print'),
+        types.InlineKeyboardButton(text=f'print10 {checkPrint("172.16.39.15")}', callback_data='print10_print'),
+        types.InlineKeyboardButton(text=f'print9 {checkPrint("172.16.39.14")}', callback_data='print9_print'),
+        types.InlineKeyboardButton(text=f'print13 {checkPrint("172.16.39.21")}', callback_data='print13_print'),
+        types.InlineKeyboardButton(text=f'print19 {checkPrint("172.16.39.26")}', callback_data='print19_print'),
+        types.InlineKeyboardButton(text=f'print22 {checkPrint("172.16.39.29")}', callback_data='print22_print')
     ]
     keyboard_list_print_for_print_2520_2530.add(*buttons_2520_2530)
     bot.send_message(call.from_user.id, text='На принтере есть этикетка с именем принтера.\nВыбери принтер для печати.\nПринтеры на Ломоносова, 9 на 6-ом этаже(2520)\n✅ - принтер включен\n❎ - принтер выключен.',reply_markup=keyboard_list_print_for_print_2520_2530)
@@ -58,10 +58,10 @@ def List_Print(bot,call):
 
     keyboard_list_print_for_print_cerkov = types.InlineKeyboardMarkup(row_width=4)
     buttons_cerkov = [
-        types.InlineKeyboardButton(text=f'print18 {checkPrint("print18.metalab.ifmo.ru")}', callback_data='print18_print'),
-        types.InlineKeyboardButton(text=f'print7 {checkPrint("print17.metalab.ifmo.ru")}', callback_data='print7_print'),
+        types.InlineKeyboardButton(text=f'print18 {checkPrint("172.16.39.25")}', callback_data='print18_print'),
+        types.InlineKeyboardButton(text=f'print7 {checkPrint("172.16.39.12")}', callback_data='print7_print'),
         types.InlineKeyboardButton(text=f'print4318 {checkPrint("print4318.metalab.ifmo.ru")}', callback_data='print4318_print'),
-        types.InlineKeyboardButton(text=f'print21 {checkPrint("print21.metalab.ifmo.ru")}', callback_data='print21_print')
+        types.InlineKeyboardButton(text=f'print21 {checkPrint("172.16.39.28")}', callback_data='print21_print')
     ]
     keyboard_list_print_for_print_cerkov.add(*buttons_cerkov)
     bot.send_message(call.from_user.id, text='Принтеры на Ломоносова, 9 (церковь: Phoenix, ИЦ).',reply_markup=keyboard_list_print_for_print_cerkov)
