@@ -81,7 +81,6 @@ def List_Print(bot,call):
 
 
 def Show_Information (bot:telebot.TeleBot,call:telebot.types.CallbackQuery,choose_printer):
-    if pinging(choose_printer):
         try :
             bot.current_states.set_data(call.message.chat.id, call.message.chat.id, "choose_printer", choose_printer)
         except Exception as ex:
@@ -100,5 +99,3 @@ def Show_Information (bot:telebot.TeleBot,call:telebot.types.CallbackQuery,choos
         with open('logs.txt', 'a') as logs:
             logs.write( f"{str(return_time())} - Пользователь: {str(call.from_user.first_name)} - выбрал {choose_printer}  " + "\n")
         logs.close()
-    else: 
-        bot.send_message(call.message.chat.id, f"Принтер {choose_printer} выключен или недоступен.\nПожалуйста, свяжитесь с IT-отделом.")

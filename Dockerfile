@@ -81,8 +81,8 @@ CMD [ "python3", "Main.py"]
 #после создания контейнера, нужно: 
 #1. примаунтить папку scan, через телеграм бота 
 #2. поменять пароль пользователю print, командой passwd print 
-#3. Скопирвоать файл printers.conf из /mnt/scan/ppd/printers.conf в папку /etc/cups
-#4. скопировать всю папку /mnt/scan/ppd в /etc/cups
+#3. Скопирвоать файл printers.conf из /mnt/scan/ppd/printers.conf в папку /etc/cups командой cp /mnt/Scan/ppd/printers.conf etc/cups/printers.conf
+#4. скопировать всю папку /mnt/scan/ppd в /etc/cups командой cp -R /mnt/Scan/ppd/ppd etc/cups/
 #5. поменять рекунсивно пользователь:группа в папке cups командой chown root:root -R /etc/cups
 #6. перезапустить службу cups командой service cups restart 
 #7. доабвить в portainer во вкладке Network поле Hosts file entries значение physics.itmo.ru:77.234.203.238
