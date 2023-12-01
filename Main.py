@@ -162,8 +162,6 @@ def documents(message):
 #
 @bot.callback_query_handler(func=lambda call: True)
 def Actions (call):
-    list_printers = []
-    list_printers = get_printers()
     if call.data == "help_button":
         bot.send_message(call.from_user.id, text='Привет, я бот, который поможет тебе распечатать или отсканировать документ. \nЯ умею выбирать количество копий, формат бумаги (А3, А4, А5), печатать на обеих сторонах листа или включать режим постраничной печати. \nНажми start, чтобы начать.')
 
