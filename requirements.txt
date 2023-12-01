@@ -1,0 +1,10 @@
+pyTelegramBotAPI
+Pillow
+PyPDF2
+requests
+#telebot
+uno
+docx2pdf
+pydocx
+#subprocess
+ping3
