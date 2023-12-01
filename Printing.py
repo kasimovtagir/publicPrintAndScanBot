@@ -23,8 +23,7 @@ def pinging(host):
         #print(f'{host} доступен (Время отклика: {response_time} мс)')
         return True
     else:
-        print(f'{host} недоступен')
-        os.system(f'{host} недоступен')
+        print(f'{host} недоступен', flush=True)
         return False
 
 def return_time():
