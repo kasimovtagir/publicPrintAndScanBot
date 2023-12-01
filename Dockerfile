@@ -45,30 +45,30 @@ COPY requirements.txt .
 # Copy the default configuration file
 # Copy the default configuration file
 COPY --chown=root:lp cupsd.conf /etc/cups/cupsd.conf
-COPY --chown=root:lp /ppd/printers.conf /etc/cups/printers.conf
-COPY --chown=root:lp /ppd/ppd/print7.metalab.ifmo.ru.ppd /etc/cups/ppd/print7.metalab.ifmo.ru.ppd
-COPY --chown=root:lp /ppd/ppd/print7.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print7.metalab.ifmo.ru.ppd.O
-COPY --chown=root:lp /ppd/ppd/print9.metalab.ifmo.ru.ppd /etc/cups/ppd/print9.metalab.ifmo.ru.ppd 
-COPY --chown=root:lp /ppd/ppd/print9.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print9.metalab.ifmo.ru.ppd.O 
-COPY --chown=root:lp /ppd/ppd/print10.metalab.ifmo.ru.ppd /etc/cups/ppd/print10.metalab.ifmo.ru.ppd
-COPY --chown=root:lp /ppd/ppd/print10.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print10.metalab.ifmo.ru.ppd.O 
-COPY --chown=root:lp /ppd/ppd/print13.metalab.ifmo.ru.ppd /etc/cups/ppd/print13.metalab.ifmo.ru.ppd 
-COPY --chown=root:lp /ppd/ppd/print13.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print13.metalab.ifmo.ru.ppd.O
-COPY --chown=root:lp /ppd/ppd/print14.metalab.ifmo.ru.ppd /etc/cups/ppd/print14.metalab.ifmo.ru.ppd
-COPY --chown=root:lp /ppd/ppd/print14.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print14.metalab.ifmo.ru.ppd.O
-COPY --chown=root:lp /ppd/ppd/print15.metalab.ifmo.ru.ppd /etc/cups/ppd/print15.metalab.ifmo.ru.ppd  
-COPY --chown=root:lp /ppd/ppd/print15.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print15.metalab.ifmo.ru.ppd.O 
-COPY --chown=root:lp /ppd/ppd/print16.metalab.ifmo.ru.ppd /etc/cups/ppd/print16.metalab.ifmo.ru.ppd  
-COPY --chown=root:lp /ppd/ppd/print16.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print16.metalab.ifmo.ru.ppd.O
-COPY --chown=root:lp /ppd/ppd/print18.metalab.ifmo.ru.ppd /etc/cups/ppd/print18.metalab.ifmo.ru.ppd 
-COPY --chown=root:lp /ppd/ppd/print18.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print18.metalab.ifmo.ru.ppd.O 
-COPY --chown=root:lp /ppd/ppd/print19.metalab.ifmo.ru.ppd /etc/cups/ppd/print19.metalab.ifmo.ru.ppd 
-COPY --chown=root:lp /ppd/ppd/print19.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print19.metalab.ifmo.ru.ppd.O 
-COPY --chown=root:lp /ppd/ppd/print22.metalab.ifmo.ru.ppd /etc/cups/ppd/print22.metalab.ifmo.ru.ppd 
-COPY --chown=root:lp /ppd/ppd/print22.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print22.metalab.ifmo.ru.ppd.O 
-COPY --chown=root:lp /ppd/ppd/print21.metalab.ifmo.ru.ppd /etc/cups/ppd/print21.metalab.ifmo.ru.ppd 
-COPY --chown=root:lp /ppd/ppd/print21.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print21.metalab.ifmo.ru.ppd.O 
-COPY --chown=root:lp /ppd/ppd/print2426.metalab.ifmo.ru.ppd /etc/cups/ppd/print2426.metalab.ifmo.ru.ppd
+# COPY --chown=root:lp /ppd/printers.conf /etc/cups/printers.conf
+# COPY --chown=root:lp /ppd/ppd/print7.metalab.ifmo.ru.ppd /etc/cups/ppd/print7.metalab.ifmo.ru.ppd
+# COPY --chown=root:lp /ppd/ppd/print7.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print7.metalab.ifmo.ru.ppd.O
+# COPY --chown=root:lp /ppd/ppd/print9.metalab.ifmo.ru.ppd /etc/cups/ppd/print9.metalab.ifmo.ru.ppd 
+# COPY --chown=root:lp /ppd/ppd/print9.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print9.metalab.ifmo.ru.ppd.O 
+# COPY --chown=root:lp /ppd/ppd/print10.metalab.ifmo.ru.ppd /etc/cups/ppd/print10.metalab.ifmo.ru.ppd
+# COPY --chown=root:lp /ppd/ppd/print10.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print10.metalab.ifmo.ru.ppd.O 
+# COPY --chown=root:lp /ppd/ppd/print13.metalab.ifmo.ru.ppd /etc/cups/ppd/print13.metalab.ifmo.ru.ppd 
+# COPY --chown=root:lp /ppd/ppd/print13.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print13.metalab.ifmo.ru.ppd.O
+# COPY --chown=root:lp /ppd/ppd/print14.metalab.ifmo.ru.ppd /etc/cups/ppd/print14.metalab.ifmo.ru.ppd
+# COPY --chown=root:lp /ppd/ppd/print14.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print14.metalab.ifmo.ru.ppd.O
+# COPY --chown=root:lp /ppd/ppd/print15.metalab.ifmo.ru.ppd /etc/cups/ppd/print15.metalab.ifmo.ru.ppd  
+# COPY --chown=root:lp /ppd/ppd/print15.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print15.metalab.ifmo.ru.ppd.O 
+# COPY --chown=root:lp /ppd/ppd/print16.metalab.ifmo.ru.ppd /etc/cups/ppd/print16.metalab.ifmo.ru.ppd  
+# COPY --chown=root:lp /ppd/ppd/print16.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print16.metalab.ifmo.ru.ppd.O
+# COPY --chown=root:lp /ppd/ppd/print18.metalab.ifmo.ru.ppd /etc/cups/ppd/print18.metalab.ifmo.ru.ppd 
+# COPY --chown=root:lp /ppd/ppd/print18.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print18.metalab.ifmo.ru.ppd.O 
+# COPY --chown=root:lp /ppd/ppd/print19.metalab.ifmo.ru.ppd /etc/cups/ppd/print19.metalab.ifmo.ru.ppd 
+# COPY --chown=root:lp /ppd/ppd/print19.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print19.metalab.ifmo.ru.ppd.O 
+# COPY --chown=root:lp /ppd/ppd/print22.metalab.ifmo.ru.ppd /etc/cups/ppd/print22.metalab.ifmo.ru.ppd 
+# COPY --chown=root:lp /ppd/ppd/print22.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print22.metalab.ifmo.ru.ppd.O 
+# COPY --chown=root:lp /ppd/ppd/print21.metalab.ifmo.ru.ppd /etc/cups/ppd/print21.metalab.ifmo.ru.ppd 
+# COPY --chown=root:lp /ppd/ppd/print21.metalab.ifmo.ru.ppd.O /etc/cups/ppd/print21.metalab.ifmo.ru.ppd.O 
+# COPY --chown=root:lp /ppd/ppd/print2426.metalab.ifmo.ru.ppd /etc/cups/ppd/print2426.metalab.ifmo.ru.ppd
 
 RUN mkdir  /mnt/Scan
 RUN mkdir  /mnt/Logs
