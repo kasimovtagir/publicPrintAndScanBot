@@ -1,3 +1,10 @@
+import os 
+
+qwe = os.system("ping -c 3 172.16.39.23",  flush=True)
+
+print(len( qwe))
+
+
 # import subprocess
 # import re
 
