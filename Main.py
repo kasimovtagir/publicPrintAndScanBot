@@ -43,10 +43,10 @@ BOT_TOKEN = ""
 RESTAPI_ACCESS_TOKEN = ""
 state_storage = StateMemoryStorage() 
  
-# import keys
-# ADMINS = keys.ADMINS
-# BOT_TOKEN = keys.BOT_TOKEN
-# RESTAPI_ACCESS_TOKEN = keys.RESTAPI_ACCESS_TOKEN
+import keys
+ADMINS = keys.ADMINS
+BOT_TOKEN = keys.BOT_TOKEN
+RESTAPI_ACCESS_TOKEN = keys.RESTAPI_ACCESS_TOKEN
 
 
 if ADMINS == "" and BOT_TOKEN == "" and RESTAPI_ACCESS_TOKEN=="":
