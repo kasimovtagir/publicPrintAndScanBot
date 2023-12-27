@@ -363,7 +363,7 @@ def Actions (call):
             else: printing =  f"lp -d {choose_printer} /mnt/File/{file_name} {size_paper} {duplex_print} {count_copies} {pages_print}"
             
             print(f"{str(return_time())} - Пользователь: {str(call.from_user.first_name)} - отправил на печеть файл: {format(str(file_name))} На принтер {choose_printer}")
-            print(printing)
+            print(printing, flush=True)
             #убрать комент который ниже 
             os.system(printing)
             #delete_files_in_folder("/mnt/File/")
