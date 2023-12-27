@@ -5,7 +5,8 @@ from platform import python_branch
 from hashlib import sha1
 import telebot 
 from telebot import types
-from PyPDF2 import PdfFileReader
+#from PyPDF2 import PdfFileReader
+#import PdfReader
 import re
 import time
 from datetime import datetime
@@ -59,7 +60,7 @@ USER_API = user.UserAPI(token=RESTAPI_ACCESS_TOKEN)
 
 bot  = telebot.TeleBot(BOT_TOKEN,state_storage=state_storage)
 
-
+bot.api_server_timeout = 10
 
 @bot.message_handler(func=lambda message: not filter_Tg( bot, message.chat.id ))
 def Send_instruction(message):
@@ -365,7 +366,7 @@ def Actions (call):
             print(printing)
             #убрать комент который ниже 
             os.system(printing)
-            delete_files_in_folder("/mnt/File/")
+            #delete_files_in_folder("/mnt/File/")
             bot.current_states.set_state(call.message.chat.id, call.message.chat.id, None)
             bot.current_states.reset_data(call.message.chat.id, call.message.chat.id)
 

@@ -4,7 +4,8 @@ import os
 from datetime import datetime
 import telebot
 from telebot import types
-from PyPDF2 import PdfFileReader
+#from PyPDF2 
+#import PdfReader
 import string
 from datetime import datetime
 import time

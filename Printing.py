@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 import telebot
 from telebot import types
-from PyPDF2 import PdfFileReader
+#from PyPDF2 import PdfFileReader
 import string
 from datetime import datetime
 import time
@@ -24,7 +24,7 @@ def pinging(host):
             print(f'{host} недоступен', flush=True)
             return False
         else: 
-            print(f'{host} доступен (Время отклика: {response_time} мс)', flush=True)
+            #print(f'{host} доступен (Время отклика: {response_time} мс)')
             return True
     else:
         print(f'{host} недоступен', flush=True)
