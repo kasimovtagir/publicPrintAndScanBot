@@ -85,7 +85,7 @@ def admins(bot,call):
 
 
 def copy_conf_file(bot,call):
-    os.system("cp -r /mnt/Scan/ppd/ppd/ /etc/cups/ppd/")
+    os.system("cp -r /mnt/Scan/ppd/ppd/ /etc/cups/")
     os.system("cp /mnt/Scan/ppd/printers.conf /etc/cups/printers.conf")
     os.system("chmod 777 -R /etc/cups")
     bot.send_message(call.from_user.id, text="Копирование конфиг файла заверщено.")
