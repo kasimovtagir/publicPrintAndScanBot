@@ -66,9 +66,11 @@ def admin_buttons (bot,call):
     restart_cups = types.InlineKeyboardButton(text='Перезапустить службу', callback_data='restart_cups')
     mount_store = types.InlineKeyboardButton(text='Mount к store\scan_bot', callback_data='mount_store')
     show_log = types.InlineKeyboardButton(text='Показать последние 10 логов', callback_data='show_log')
+    copy_conf_file = types.InlineKeyboardButton(text='Скопировать конф файла', callback_data='copy_conf_file')
     admin_buttons_keyboard.add(restart_cups)
     admin_buttons_keyboard.add(mount_store)
     admin_buttons_keyboard.add(show_log)
+    admin_buttons_keyboard.add(copy_conf_file)
     bot.send_message(call.message.chat.id, text='Выбирай:', reply_markup=admin_buttons_keyboard)
 
 def admin_restart_service_cups ():
@@ -80,6 +82,16 @@ def admins(bot,call):
         for row in deque(f, 10):
             messages =messages+ row.strip()+"\n"
         bot.send_message(call.from_user.id, text=messages)
+
+
+def copy_conf_file(bot,call):
+    os.system("cp -r /mnt/Scan/ppd/ppd/ /etc/cups/ppd/")
+    os.system("cp /mnt/Scan/ppd/printers.conf /etc/cups/printers.conf")
+    os.system("chmod 777 -R /etc/cups")
+    bot.send_message(call.from_user.id, text="Копирование конфиг файла заверщено.")
+
+
+
 
 def admin_mount_store_yes_or_no(bot,call):
     admin_mount_keyboard = types.InlineKeyboardMarkup(row_width=2)

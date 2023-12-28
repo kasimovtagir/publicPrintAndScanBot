@@ -44,10 +44,10 @@ BOT_TOKEN = ""
 RESTAPI_ACCESS_TOKEN = ""
 state_storage = StateMemoryStorage() 
  
-# import keys
-# ADMINS = keys.ADMINS
-# BOT_TOKEN = keys.BOT_TOKEN
-# RESTAPI_ACCESS_TOKEN = keys.RESTAPI_ACCESS_TOKEN 
+import keys
+ADMINS = keys.ADMINS
+BOT_TOKEN = keys.BOT_TOKEN
+RESTAPI_ACCESS_TOKEN = keys.RESTAPI_ACCESS_TOKEN 
 
 
 if ADMINS == "" and BOT_TOKEN == "" and RESTAPI_ACCESS_TOKEN=="":
@@ -180,6 +180,10 @@ def Actions (call):
     if call.data == "show_log":
         CallBackTG.admins(bot,call)
         #os.system("service cups restart")
+
+
+    if  call.data == "copy_conf_file":
+        CallBackTG.copy_conf_file(bot,call)
 
     if call.data =="mount_store":
         path = "//mnt//Scan//print15"
