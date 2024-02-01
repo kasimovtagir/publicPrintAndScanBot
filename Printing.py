@@ -36,7 +36,7 @@ def return_time():
     return dt_string
 
 def checkPrint(choose_printer):
-#    pass
+#    pass 
     if (pinging(choose_printer)):
         return "✅"
     else: return "❎"
