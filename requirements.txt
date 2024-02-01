@@ -1,6 +1,6 @@
 pyTelegramBotAPI
 Pillow
-PyPDF2
+PyPDF2<3.0
 requests
 #telebot
 uno

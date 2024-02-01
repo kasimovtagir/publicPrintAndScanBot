@@ -44,10 +44,10 @@ BOT_TOKEN = ""
 RESTAPI_ACCESS_TOKEN = ""
 state_storage = StateMemoryStorage() 
  
-# import keys
-# ADMINS = keys.ADMINS
-# BOT_TOKEN = keys.BOT_TOKEN
-# RESTAPI_ACCESS_TOKEN = keys.RESTAPI_ACCESS_TOKEN 
+import keys
+ADMINS = keys.ADMINS
+BOT_TOKEN = keys.BOT_TOKEN
+RESTAPI_ACCESS_TOKEN = keys.RESTAPI_ACCESS_TOKEN 
 
 
 if ADMINS == "" and BOT_TOKEN == "" and RESTAPI_ACCESS_TOKEN=="":
@@ -68,8 +68,7 @@ def Send_instruction(message):
 
     
 @bot.message_handler(content_types=["photo"]) 
-def sends_photo(message):
-    
+def sends_photo(message):    
     data = bot.current_states.get_data(message.chat.id, message.chat.id )
     if data is not None:
         choose_printer = data.get("choose_printer")
@@ -369,7 +368,7 @@ def Actions (call):
             print(f"{str(return_time())} - Пользователь: {str(call.from_user.first_name)} - отправил на печеть файл: {format(str(file_name))} На принтер {choose_printer}")
             print(printing, flush=True)
             #убрать комент который ниже 
-            os.system(printing)
+            #os.system(printing)
             #delete_files_in_folder("/mnt/File/")
             bot.current_states.set_state(call.message.chat.id, call.message.chat.id, None)
             bot.current_states.reset_data(call.message.chat.id, call.message.chat.id)
