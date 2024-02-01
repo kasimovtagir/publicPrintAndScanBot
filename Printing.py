@@ -36,10 +36,10 @@ def return_time():
     return dt_string
 
 def checkPrint(choose_printer):
-    pass
-    # if (pinging(choose_printer)):
-    #     return "✅"
-    # else: return "❎"
+#    pass
+    if (pinging(choose_printer)):
+        return "✅"
+    else: return "❎"
 
 
 def List_Print(bot,call):
