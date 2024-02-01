@@ -368,7 +368,7 @@ def Actions (call):
             print(f"{str(return_time())} - Пользователь: {str(call.from_user.first_name)} - отправил на печеть файл: {format(str(file_name))} На принтер {choose_printer}")
             print(printing, flush=True)
             #убрать комент который ниже 
-            #os.system(printing)
+            os.system(printing)
             #delete_files_in_folder("/mnt/File/")
             bot.current_states.set_state(call.message.chat.id, call.message.chat.id, None)
             bot.current_states.reset_data(call.message.chat.id, call.message.chat.id)
