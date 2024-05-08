@@ -89,7 +89,10 @@ def copy_conf_file(bot,call):
     os.system("cp /mnt/Scan/ppd/printers.conf /etc/cups/printers.conf")
     os.system("chmod 777 -R /etc/cups")
     os.system("service cups restart")
-    bot.send_message(call.from_user.id, text="Копирование конфиг файла заверщено и служба cups перезапущена.")
+    
+    
+    ##os.system("passwd print ")
+    bot.send_message(call.from_user.id, text="Копирование конфиг файла заверщено и служба cups перезапущена. Открой cmd контейнера и введи команду ""passwd print"" и установи новый пароль для учетной записи print.")
 
 
 

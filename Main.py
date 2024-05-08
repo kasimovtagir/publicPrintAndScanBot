@@ -398,10 +398,7 @@ def Actions (call):
                         continue
                 bot.send_message(call.from_user.id, text="Файл расспечатан. Нажмите START")
                 
-
-                    
-
-            #delete_files_in_folder("/mnt/File/")
+            delete_files_in_folder(f"/mnt/File/{file_name}")
             bot.current_states.set_state(call.message.chat.id, call.message.chat.id, None)
             bot.current_states.reset_data(call.message.chat.id, call.message.chat.id)
 
@@ -441,9 +438,7 @@ def is_printed(job_id):
 
 
 
-def delete_files_in_folder(folder_path):
-    for filename in os.listdir(folder_path):
-        file_path = os.path.join(folder_path, filename)
+def delete_files_in_folder(file_path):
         try:
             if os.path.isfile(file_path):
                 os.remove(file_path)
