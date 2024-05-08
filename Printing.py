@@ -21,7 +21,7 @@ def pinging(host):
     response_time = ping(host)
     if response_time is not None:
         if response_time is False:
-            print(f'{host} недоступен', flush=True)
+           #print(f'{host} недоступен', flush=True)
             return False
         else: 
             #print(f'{host} доступен (Время отклика: {response_time} мс)')
@@ -39,7 +39,7 @@ def checkPrint(choose_printer):
 #    pass 
     if (pinging(choose_printer)):
         return "✅"
-    else: return "❎"
+    else: return "❌"
 
 
 def List_Print(bot,call):
@@ -58,7 +58,7 @@ def List_Print(bot,call):
         types.InlineKeyboardButton(text=f'print22 {checkPrint("print22.metalab.ifmo.ru")}', callback_data='print22_print')
     ]
     keyboard_list_print_for_print_2520_2530.add(*buttons_2520_2530)
-    bot.send_message(call.from_user.id, text='На принтере есть этикетка с именем принтера.\nВыбери принтер для печати.\nПринтеры на Ломоносова, 9 на 6-ом этаже(2520)\n✅ - принтер включен\n❎ - принтер выключен.',reply_markup=keyboard_list_print_for_print_2520_2530)
+    bot.send_message(call.from_user.id, text='На принтере есть этикетка с именем принтера.\nВыбери принтер для печати.\nПринтеры на Ломоносова, 9 на 6-ом этаже(2520)\n✅ - принтер включен\n❌ - принтер выключен.',reply_markup=keyboard_list_print_for_print_2520_2530)
 
 
     keyboard_list_print_for_print_cerkov = types.InlineKeyboardMarkup(row_width=4)

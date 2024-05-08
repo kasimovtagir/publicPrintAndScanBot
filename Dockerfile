@@ -23,6 +23,7 @@ RUN apt install -y smbclient
 RUN apt install -y printer-driver-cups-pdf 
 RUN apt install -y libreoffice 
 RUN apt install -y iputils-ping
+RUN apt install -y libcups2-dev
 #RUN mount -t nfs  192.168.5.49:/share/scan_bot /mnt/
 
 RUN pip3 install -r requirements.txt

@@ -1,8 +1,57 @@
-import os 
+import cups
 
-qwe = os.system("ping -c 3 172.16.39.23",  flush=True)
+# Подключение к серверу CUPS
+conn = cups.Connection()
 
-print(len( qwe))
+# Получение информации о задании печати
+job_id = "print9.metalab.ifmo.ru-13"  # ID задания печати
+job = conn.getJobs()
+
+
+job_info = conn.getJobAttributes(3)
+# Проверка статуса задания
+# Проверка статуса задания печати
+if job_info['job-state'] == 9:  # 9 означает "completed" (завершено)
+    print("Файл успешно распечатан.")
+else:
+    print("Файл еще не был распечатан.")
+
+# import subprocess
+
+# # Запустите команду lpstat и захватите ее вывод
+# output = subprocess.Popen(['lpstat'], stdout=subprocess.PIPE).communicate()[0]
+
+# # Найдите строку, соответствующую вашему заданию печати
+# for line in output.decode().splitlines():
+#     if "JOBID" in line:
+#         job_id = line.split()[0]
+#         # Найдите статус задания печати по job_id
+#         status = get_job_status(job_id)
+#         if status == "completed":
+#             print("Файл распечатан")
+#         else:
+#             print("Файл еще не распечатан")
+
+
+
+# Функция get_job_status должна быть реализована вами
+def get_job_status(job_id):
+
+    # Реализуйте логику для получения статуса задания печати по job_id
+    # (например, используя команду cups-query-job)
+    pass
+
+# import subprocess
+
+# stat = subprocess.call(["systemctl", "is-active", "--quiet", "cups"])
+# if(stat == 0):  # if 0 (active), print "Active"
+#     print("Active")
+
+# import os 
+
+# qwe = os.system("ping -c 3 172.16.39.23",  flush=True)
+
+# print(len( qwe))
 
 
 # import subprocess

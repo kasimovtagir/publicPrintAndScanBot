@@ -8,3 +8,4 @@ docx2pdf
 pydocx
 #subprocess
 ping3
+pycups

@@ -368,10 +368,77 @@ def Actions (call):
             print(f"{str(return_time())} - Пользователь: {str(call.from_user.first_name)} - отправил на печеть файл: {format(str(file_name))} На принтер {choose_printer}")
             print(printing, flush=True)
             #убрать комент который ниже 
-            os.system(printing)
+            stat = subprocess.call(["systemctl", "is-active", "--quiet", "cups"])
+            if(stat == 0):  # if 0 (active), print "Active"
+                print("Active")
+                #os.system(printing)
+                job_id =subprocess.check_output(printing, shell=True, text=True)
+                jobs = str(job_id)
+                while(True):
+                    #choose_printer
+                    #jobs.split(" ")[3]
+                    if( is_printed(jobs.split(" ")[3])==True ):
+                        break
+                    else: 
+                        time.sleep(1)
+                        continue
+                bot.send_message(call.from_user.id, text="Файл расспечатан. Нажмите START")
+                #14
+            else:
+                os.system("service cups restart")
+                job_id =subprocess.check_output(printing, shell=True, text=True)
+                jobs = str(job_id)
+                while(True):
+                    #choose_printer
+                    #jobs.split(" ")[3]
+                    if( is_printed(jobs.split(" ")[3])==True ):
+                        break
+                    else: 
+                        time.sleep(1)
+                        continue
+                bot.send_message(call.from_user.id, text="Файл расспечатан. Нажмите START")
+                
+
+                    
+
             #delete_files_in_folder("/mnt/File/")
             bot.current_states.set_state(call.message.chat.id, call.message.chat.id, None)
             bot.current_states.reset_data(call.message.chat.id, call.message.chat.id)
+
+import cups
+def is_printed(job_id):
+    try:
+        number_string = job_id.split('-')[-1]
+                # Подключение к серверу CUPS
+        conn = cups.Connection()
+
+        # Получение информации о задании печати
+        #job_id = "print9.metalab.ifmo.ru-13"  # ID задания печати
+        job = conn.getJobs()
+
+        number = int(number_string)
+        job_info = conn.getJobAttributes(number)
+        # Проверка статуса задания
+        # Проверка статуса задания печати
+        if job_info['job-state'] == 9:  # 9 означает "completed" (завершено)
+            return True
+            #print("Файл успешно распечатан.")
+        else:
+            return False
+        # proce = "lpstat -W completed -0 "+ str(job_id)
+        # chek = os.system(proce)
+        # print (chek, flush=True )
+        # #print(chek + "---------------------")
+        # output = subprocess.check_output(proce, shell=True, text=True)
+        # #print (output + "--------------------")
+        # ##if(output=="0"):
+        # chack = "idle."
+        # if(chek == ""):
+        #     return True
+    except Exception :
+        #print (Exception)
+        return False
+
 
 
 def delete_files_in_folder(folder_path):
