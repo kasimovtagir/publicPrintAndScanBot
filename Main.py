@@ -377,7 +377,7 @@ def Actions (call):
                 while(True):
                     jobs = subprocess.check_output(f"lpstat -p {choose_printer}", shell=True, text=True)
                     number_string =str ( jobs.split(' ')[2] + " " +  jobs.split(' ')[3])
-                    print (number_string)
+                    print (number_string, flush=True)
                     #choose_printer
                     #jobs.split(" ")[3]
                     if( number_string != 'is idle.'):
@@ -396,7 +396,7 @@ def Actions (call):
                 while(True):
                     jobs = subprocess.check_output(f"lpstat -p {choose_printer}", shell=True, text=True)
                     number_string =str ( jobs.split(' ')[2] + " " +  jobs.split(' ')[3])
-                    print (number_string)
+                    print (number_string, flush=True )
                     #choose_printer
                     #jobs.split(" ")[3]
                     if( number_string != 'is idle.'):
