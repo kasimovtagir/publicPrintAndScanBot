@@ -381,6 +381,7 @@ def Actions (call):
                     print (number_string, flush=True)
                     #choose_printer
                     #jobs.split(" ")[3]
+                    time.sleep(2)
                     if( number_string != 'is idle.'):
                        time.sleep(1)
                        continue
@@ -401,6 +402,7 @@ def Actions (call):
                     print (number_string, flush=True )
                     #choose_printer
                     #jobs.split(" ")[3]
+                    time.sleep(2)
                     if( number_string != 'is idle.'):
                         time.sleep(1)
                         continue
