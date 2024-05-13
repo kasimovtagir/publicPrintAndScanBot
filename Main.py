@@ -44,10 +44,10 @@ BOT_TOKEN = ""
 RESTAPI_ACCESS_TOKEN = ""
 state_storage = StateMemoryStorage() 
  
-# import keys
-# ADMINS = keys.ADMINS
-# BOT_TOKEN = keys.BOT_TOKEN
-# RESTAPI_ACCESS_TOKEN = keys.RESTAPI_ACCESS_TOKEN 
+import keys
+ADMINS = keys.ADMINS
+BOT_TOKEN = keys.BOT_TOKEN
+RESTAPI_ACCESS_TOKEN = keys.RESTAPI_ACCESS_TOKEN 
 
 
 if ADMINS == "" and BOT_TOKEN == "" and RESTAPI_ACCESS_TOKEN=="":
@@ -371,31 +371,40 @@ def Actions (call):
             stat = subprocess.call(["systemctl", "is-active", "--quiet", "cups"])
             if(stat == 0):  # if 0 (active), print "Active"
                 print("Active")
-                os.system(printing)
+                #os.system(printing)               
+               
                 job_id =subprocess.check_output(printing, shell=True, text=True)
-                jobs = str(job_id)
                 while(True):
+                    jobs = subprocess.check_output(f"lpstat -p {choose_printer}", shell=True, text=True)
+                    number_string =str ( jobs.split(' ')[2] + " " +  jobs.split(' ')[3])
+                    print (number_string)
                     #choose_printer
                     #jobs.split(" ")[3]
-                    if( is_printed(jobs.split(" ")[3])==True ):
-                        break
+                    if( number_string != 'is idle.'):
+                       time.sleep(1)
+                       continue
                     else: 
-                        time.sleep(1)
-                        continue
+                        break
+                        
                 bot.send_message(call.from_user.id, text="Файл расспечатан. Нажмите START")
                 #14
             else:
                 os.system("service cups restart")
                 job_id =subprocess.check_output(printing, shell=True, text=True)
                 jobs = str(job_id)
+                
                 while(True):
+                    jobs = subprocess.check_output(f"lpstat -p {choose_printer}", shell=True, text=True)
+                    number_string =str ( jobs.split(' ')[2] + " " +  jobs.split(' ')[3])
+                    print (number_string)
                     #choose_printer
                     #jobs.split(" ")[3]
-                    if( is_printed(jobs.split(" ")[3])==True ):
-                        break
-                    else: 
+                    if( number_string != 'is idle.'):
                         time.sleep(1)
                         continue
+                    else: 
+                        break
+                        
                 bot.send_message(call.from_user.id, text="Файл расспечатан. Нажмите START")
                 
             delete_files_in_folder(f"/mnt/File/{file_name}")
@@ -405,24 +414,32 @@ def Actions (call):
 import cups
 def is_printed(job_id):
     try:
-        number_string = job_id.split('-')[-1]
-                # Подключение к серверу CUPS
-        conn = cups.Connection()
-        print (conn, flush=True)
+        number_string = job_id.split('-')[-2] + " " +  job_id.split('-')[-3]
+        print (number_string)
 
-        # Получение информации о задании печати
-        #job_id = "print9.metalab.ifmo.ru-13"  # ID задания печати
-        #job = conn.getJobs()
 
-        number = int(number_string)
-        job_info = conn.getJobAttributes(number)
-        # Проверка статуса задания
-        # Проверка статуса задания печати
-        if job_info['job-state'] == 9:  # 9 означает "completed" (завершено)
-            return True
-            #print("Файл успешно распечатан.")
-        else:
-            return False
+        # number_string = job_id.split('-')[-1]
+        #         # Подключение к серверу CUPS
+        # conn = cups.Connection()
+        # print (conn, flush=True)
+
+        # # Получение информации о задании печати
+        # #job_id = "print9.metalab.ifmo.ru-13"  # ID задания печати
+        # job = conn.getJobs()
+
+        # number = int(number_string)
+        # job_info = conn.getJobAttributes(number)
+        # # Проверка статуса задания
+        # # Проверка статуса задания печати
+        # if job_info['job-state'] == 9:  # 9 означает "completed" (завершено)
+        #     return True
+        #     #print("Файл успешно распечатан.")
+        # else:
+        #     return False
+        
+
+
+
         # proce = "lpstat -W completed -0 "+ str(job_id)
         # chek = os.system(proce)
         # print (chek, flush=True )
