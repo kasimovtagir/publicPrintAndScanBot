@@ -408,10 +408,11 @@ def is_printed(job_id):
         number_string = job_id.split('-')[-1]
                 # Подключение к серверу CUPS
         conn = cups.Connection()
+        print (conn, flush=True)
 
         # Получение информации о задании печати
         #job_id = "print9.metalab.ifmo.ru-13"  # ID задания печати
-        job = conn.getJobs()
+        #job = conn.getJobs()
 
         number = int(number_string)
         job_info = conn.getJobAttributes(number)
