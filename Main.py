@@ -371,9 +371,9 @@ def Actions (call):
             stat = subprocess.call(["systemctl", "is-active", "--quiet", "cups"])
             if(stat == 0):  # if 0 (active), print "Active"
                 print("Active")
-                #os.system(printing)               
+                os.system(printing)               
                
-                job_id =subprocess.check_output(printing, shell=True, text=True)
+                #job_id =subprocess.check_output(printing, shell=True, text=True)
                 while(True):
                     jobs = subprocess.check_output(f"lpstat -p {choose_printer}", shell=True, text=True)
                     number_string =str ( jobs.split(' ')[2] + " " +  jobs.split(' ')[3])
@@ -389,9 +389,9 @@ def Actions (call):
                 bot.send_message(call.from_user.id, text="Файл расспечатан. Нажмите START")
                 #14
             else:
-                os.system("service cups restart")
-                job_id =subprocess.check_output(printing, shell=True, text=True)
-                jobs = str(job_id)
+                #os.system("service cups restart")
+                #job_id =subprocess.check_output(printing, shell=True, text=True)
+                #jobs = str(job_id)
                 
                 while(True):
                     jobs = subprocess.check_output(f"lpstat -p {choose_printer}", shell=True, text=True)
