@@ -376,6 +376,7 @@ def Actions (call):
                 #job_id =subprocess.check_output(printing, shell=True, text=True)
                 while(True):
                     jobs = subprocess.check_output(f"lpstat -p {choose_printer}", shell=True, text=True)
+                    print (jobs, flush=True)
                     number_string =str ( jobs.split(' ')[2] + " " +  jobs.split(' ')[3])
                     print (number_string, flush=True)
                     #choose_printer
@@ -395,6 +396,7 @@ def Actions (call):
                 
                 while(True):
                     jobs = subprocess.check_output(f"lpstat -p {choose_printer}", shell=True, text=True)
+                    print (jobs, flush=True)
                     number_string =str ( jobs.split(' ')[2] + " " +  jobs.split(' ')[3])
                     print (number_string, flush=True )
                     #choose_printer
