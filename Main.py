@@ -371,7 +371,7 @@ def Actions (call):
             stat = subprocess.call(["systemctl", "is-active", "--quiet", "cups"])
             if(stat == 0):  # if 0 (active), print "Active"
                 print("Active")
-                #os.system(printing)
+                os.system(printing)
                 job_id =subprocess.check_output(printing, shell=True, text=True)
                 jobs = str(job_id)
                 while(True):
