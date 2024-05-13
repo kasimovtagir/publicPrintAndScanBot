@@ -48,8 +48,8 @@ def List_Print(bot,call):
     keyboard_list_print_for_print_2520_2530 = types.InlineKeyboardMarkup(row_width=4)
     buttons_2520_2530 = [
         types.InlineKeyboardButton(text=f'print14 {checkPrint("print14.metalab.ifmo.ru")}', callback_data='print14_print' ),
-        types.InlineKeyboardButton(text=f'print15 {checkPrint("print15.metalab.ifmo.ru")}', callback_data='print15_print'),
-        types.InlineKeyboardButton(text=f'print16 {checkPrint("print16.metalab.ifmo.ru")}', callback_data='print16_print'),
+        types.InlineKeyboardButton(text=f'print15 {checkPrint("172.16.22.184")}', callback_data='print15_print'),
+        types.InlineKeyboardButton(text=f'print16 {checkPrint("172.16.22.132")}', callback_data='print16_print'),
         types.InlineKeyboardButton(text=f'print10 {checkPrint("print10.metalab.ifmo.ru")}', callback_data='print10_print'),
         types.InlineKeyboardButton(text=f'print9 {checkPrint("print9.metalab.ifmo.ru")}', callback_data='print9_print'),
         types.InlineKeyboardButton(text=f'print13 {checkPrint("print13.metalab.ifmo.ru")}', callback_data='print13_print'),
@@ -73,7 +73,7 @@ def List_Print(bot,call):
 
     keyboard_list_print_for_print_4_flor = types.InlineKeyboardMarkup(row_width=4)
     buttons_4_flors = [
-        types.InlineKeyboardButton(text=f'print2426 {checkPrint("172.16.35.75")}', callback_data='print2426_print')
+        types.InlineKeyboardButton(text=f'print2426 {checkPrint("172.16.22.235")}', callback_data='print2426_print')
     ]
     keyboard_list_print_for_print_4_flor.add(*buttons_4_flors)
     bot.send_message(call.from_user.id, text='Принтеры на Ломоносова, 9, 4й этаж.',reply_markup=keyboard_list_print_for_print_4_flor)
@@ -82,11 +82,13 @@ def List_Print(bot,call):
 
 def Show_Information (bot:telebot.TeleBot,call:telebot.types.CallbackQuery,choose_printer):
     if pinging(choose_printer):
-        if choose_printer == "172.16.35.75":
+        if choose_printer == "172.16.22.235":
             choose_printer = "print2426.metalab.ifmo.ru"
         if choose_printer == "172.16.39.20":
             choose_printer = "print4318.metalab.ifmo.ru"
         if choose_printer == "172.16.22.184":
+            choose_printer = "print15.metalab.ifmo.ru"
+        if choose_printer == "172.16.22.132":
             choose_printer = "print15.metalab.ifmo.ru"
         try :
             bot.current_states.set_data(call.message.chat.id, call.message.chat.id, "choose_printer", choose_printer)
