@@ -89,7 +89,7 @@ def Show_Information (bot:telebot.TeleBot,call:telebot.types.CallbackQuery,choos
         if choose_printer == "172.16.22.184":
             choose_printer = "print15.metalab.ifmo.ru"
         if choose_printer == "172.16.22.132":
-            choose_printer = "print15.metalab.ifmo.ru"
+            choose_printer = "print16.metalab.ifmo.ru"
         try :
             bot.current_states.set_data(call.message.chat.id, call.message.chat.id, "choose_printer", choose_printer)
         except Exception as ex:
