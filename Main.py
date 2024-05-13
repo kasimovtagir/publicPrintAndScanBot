@@ -247,14 +247,14 @@ def Actions (call):
             "print13_print": "print13.metalab.ifmo.ru",
             "print9_print": "print9.metalab.ifmo.ru",
             "print14_print": "print14.metalab.ifmo.ru",
-            "print15_print": "print15.metalab.ifmo.ru",
-            "print16_print": "print16.metalab.ifmo.ru",
+            "print15_print": "172.16.22.184",
+            "print16_print": "172.16.22.132",
             "print18_print": "print18.metalab.ifmo.ru",
             "print7_print": "print7.metalab.ifmo.ru",
             "print21_print": "print21.metalab.ifmo.ru",
             "print4318_print": "172.16.39.20",
             "print17_print": "print17.metalab.ifmo.ru",
-            "print2426_print": "172.16.35.75"
+            "print2426_print": "172.16.22.235"
         }
 
 
