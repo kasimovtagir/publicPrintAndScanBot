@@ -1,6 +1,5 @@
 #FROM python:3.8-slim-buster
-FROM ubuntu:latest
-
+FROM python
 
 WORKDIR /
 
