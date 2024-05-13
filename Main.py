@@ -407,7 +407,7 @@ def is_printed(job_id):
     try:
         number_string = job_id.split('-')[-1]
                 # Подключение к серверу CUPS
-        conn = cups.Connection("http://10.0.0.114:631")
+        conn = cups.Connection("http://localhost:631")
 
         # Получение информации о задании печати
         #job_id = "print9.metalab.ifmo.ru-13"  # ID задания печати
