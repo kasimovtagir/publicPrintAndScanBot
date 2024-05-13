@@ -323,6 +323,84 @@ def Actions (call):
 
 
 #-----------------------------------------------------------START PRINTING--------------------------------
+    # if call.data=="Printing":
+    #     data = bot.current_states.get_data(call.message.chat.id, call.message.chat.id )
+    #     if data is not None:
+    #         file_name = data.get("file_name")
+    #         choose_printer = data.get ("choose_printer")
+    #         duplex_print = data.get("duplex_print")
+    #         count_copies = data.get("count_copies")
+    #         pages_print = data.get ("pages_print")
+    #         size_paper = data.get ("size_paper")
+    #         pagess = data.get ("pagess")
+
+    #     else:
+    #         file_name = None
+    #         choose_printer = None
+    #         duplex_print = None
+    #         count_copies= None
+    #         pages_print = None
+    #         size_paper = None
+    #         pagess = None
+
+    #     with open('/mnt/Logs/logs.txt', 'a') as logs:
+    #         logs.write( f"{str(return_time())} - Пользователь: {str(call.from_user.first_name)} - отправил на печеть файл: {format(str(file_name))} На принтер {choose_printer} \n")
+
+    #     if file_name == None:
+    #         bot.send_message(call.message.chat.id,f"Зафиксировано повторное нажатие. \nНажми на кнопку START")       
+    #     else:
+    #         bot.send_message(call.message.chat.id,f"Идет печать файла: {format(str(file_name))} \nНа принтере: {choose_printer}\n")
+    #         if pages_print==None:
+    #             pages_print =""
+    #         else: 
+    #             pages_print=f" -o page-ranges={pages_print}"
+            
+    #         if duplex_print==None:
+    #             duplex_print=""
+    #         if count_copies == None:
+    #             count_copies= ""    
+    #         if size_paper==None:
+    #             size_paper=""
+    #             printing =  f"lp -d {choose_printer} /mnt/File/{file_name} -o media=A4 {duplex_print} {count_copies} {pages_print} {size_paper}"
+
+    #         else: printing =  f"lp -d {choose_printer} /mnt/File/{file_name} {size_paper} {duplex_print} {count_copies} {pages_print}"
+            
+    #         print(f"{str(return_time())} - Пользователь: {str(call.from_user.first_name)} - отправил на печеть файл: {format(str(file_name))} На принтер {choose_printer}")
+    #         print(printing, flush=True)
+    #         #убрать комент который ниже 
+    #         stat = subprocess.call(["systemctl", "is-active", "--quiet", "cups"])
+    #         if(stat == 0):  # if 0 (active), print "Active"
+    #             print("Active")
+    #             #os.system(printing)
+    #             job_id =subprocess.check_output(printing, shell=True, text=True)
+    #             jobs = str(job_id)
+    #             while(True):
+    #                 #choose_printer
+    #                 #jobs.split(" ")[3]
+    #                 if( is_printed(jobs.split(" ")[3])==True ):
+    #                     break
+    #                 else: 
+    #                     time.sleep(1)
+    #                     continue
+    #             bot.send_message(call.from_user.id, text="Файл расспечатан. Нажмите START")
+    #             #14
+    #         else:
+    #             os.system("service cups restart")
+    #             job_id =subprocess.check_output(printing, shell=True, text=True)
+    #             jobs = str(job_id)
+    #             while(True):
+    #                 #choose_printer
+    #                 #jobs.split(" ")[3]
+    #                 if( is_printed(jobs.split(" ")[3])==True ):
+    #                     break
+    #                 else: 
+    #                     time.sleep(1)
+    #                     continue
+    #             bot.send_message(call.from_user.id, text="Файл расспечатан. Нажмите START")
+                
+    #         delete_files_in_folder(f"/mnt/File/{file_name}")
+    #         bot.current_states.set_state(call.message.chat.id, call.message.chat.id, None)
+    #         bot.current_states.reset_data(call.message.chat.id, call.message.chat.id)
     if call.data=="Printing":
         data = bot.current_states.get_data(call.message.chat.id, call.message.chat.id )
         if data is not None:
@@ -354,7 +432,7 @@ def Actions (call):
                 pages_print =""
             else: 
                 pages_print=f" -o page-ranges={pages_print}"
-            
+
             if duplex_print==None:
                 duplex_print=""
             if count_copies == None:
@@ -364,41 +442,12 @@ def Actions (call):
                 printing =  f"lp -d {choose_printer} /mnt/File/{file_name} -o media=A4 {duplex_print} {count_copies} {pages_print} {size_paper}"
 
             else: printing =  f"lp -d {choose_printer} /mnt/File/{file_name} {size_paper} {duplex_print} {count_copies} {pages_print}"
-            
+
             print(f"{str(return_time())} - Пользователь: {str(call.from_user.first_name)} - отправил на печеть файл: {format(str(file_name))} На принтер {choose_printer}")
-            print(printing, flush=True)
+            print(printing)
             #убрать комент который ниже 
-            stat = subprocess.call(["systemctl", "is-active", "--quiet", "cups"])
-            if(stat == 0):  # if 0 (active), print "Active"
-                print("Active")
-                #os.system(printing)
-                job_id =subprocess.check_output(printing, shell=True, text=True)
-                jobs = str(job_id)
-                while(True):
-                    #choose_printer
-                    #jobs.split(" ")[3]
-                    if( is_printed(jobs.split(" ")[3])==True ):
-                        break
-                    else: 
-                        time.sleep(1)
-                        continue
-                bot.send_message(call.from_user.id, text="Файл расспечатан. Нажмите START")
-                #14
-            else:
-                os.system("service cups restart")
-                job_id =subprocess.check_output(printing, shell=True, text=True)
-                jobs = str(job_id)
-                while(True):
-                    #choose_printer
-                    #jobs.split(" ")[3]
-                    if( is_printed(jobs.split(" ")[3])==True ):
-                        break
-                    else: 
-                        time.sleep(1)
-                        continue
-                bot.send_message(call.from_user.id, text="Файл расспечатан. Нажмите START")
-                
-            delete_files_in_folder(f"/mnt/File/{file_name}")
+            os.system(printing)
+            #delete_files_in_folder("/mnt/File/")
             bot.current_states.set_state(call.message.chat.id, call.message.chat.id, None)
             bot.current_states.reset_data(call.message.chat.id, call.message.chat.id)
 
